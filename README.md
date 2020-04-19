@@ -23,9 +23,17 @@ docker-compose down
 ```
 
 ### Run commands into container:
-```docker exec -it app php artisan key:generate```
-```docker exec -it app php storage:link```
-```docker exec -it app php artisan migrate --seed```
+```
+docker exec -it app php artisan key:generate
+```
+
+```
+docker exec -it app php storage:link
+```
+
+```
+docker exec -it app php artisan migrate --seed
+```
 
 ### Port bindings and default password - for outside access (host)
 This parameters can be edited at <b>docker-compose.yml</b>
