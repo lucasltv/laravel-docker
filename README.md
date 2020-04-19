@@ -7,17 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Laravel 7.x Scaffold with Docker, Nginx, Redis and MySql/MariaDB
+## Laravel 7.x Scaffold with Docker, Nginx, MySql/MariaDB , Redis (optional) and MongoDB (optional)
 
 
 #### This structure was built with ```composer create-project --prefer-dist laravel/laravel <app_name>```
 
-Start (scripts/start-dev.sh):
+Start (or scripts/start-dev.sh):
 ```
 docker-compose up -d --build
 ```
 
-Stop (scripts/stop-dev.sh):
+Stop (or scripts/stop-dev.sh):
 ```
 docker-compose down
 ```
