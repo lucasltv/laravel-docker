@@ -9,6 +9,9 @@
 
 ## Laravel 7.x Scaffold with Docker, Nginx, Redis and MySql
 
+
+#### This structure was built with ```composer create-project --prefer-dist laravel/laravel <app_name>```
+
 Start (scripts/start-dev.sh):
 ```
 docker-compose up -d --build
@@ -37,4 +40,4 @@ This parameters can be edited at <b>docker-compose.yml</b>
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
