@@ -34,11 +34,14 @@ This parameters can be edited at <b>docker-compose.yml</b>
 
 <b>WEB Application</b>: 8080 (localhost:8080)<br>
 <b>MYSQL</b>: 33061<br>
-<b>REDIS</b>: 6379<br>
+<b>MONGODB</b>: 27018<br>
 <b>MYSQL_DATABASE</b>: app<br>
 <b>MYSQL_ROOT_PASSWORD</b>: root<br>
 <b>MYSQL_USER</b>: admin<br>
 <b>MYSQL_PASSWORD</b>: admin<br>
+<b>MONGO_INITDB_ROOT_USERNAME</b>: root<br>
+<b>MONGO_INITDB_ROOT_PASSWORD</b>: root<br>
+<b>REDIS</b>: 6379<br>
 
 ## License
 
