@@ -7,20 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Laravel 7.x Scaffold with Docker, Nginx, PHP, MariaDB (or MySql), Redis and MongoDB
+## Laravel 7.x Scaffold with Docker, MariaDB, Redis and MongoDB
 
-#### This structure was built with ```composer create-project --prefer-dist laravel/laravel app```
+#### Generate most recently (7.x) Laravel project with ```composer create-project --prefer-dist laravel/laravel app```
 
-##### PHP Version: 7.2
+##### Laravel Version: 7.x ([Bitnami Laravel Container](https://github.com/bitnami/bitnami-docker-laravel))
+##### PHP Version: 7.3 ([Bitnami Laravel Container](https://github.com/bitnami/bitnami-docker-laravel))
 ##### MariaDB Version: latest
-##### MySql (disabled by default): latest
 ##### MongoDB Version (optional): latest
 ##### Redis Version (optional): latest
 
 <br>
 <br>
 
-Start (or scripts/start-dev.sh):
+Start
+```
+docker-compose up
+```
+
+Start Background + rebuild
 ```
 docker-compose up -d --build
 ```
@@ -31,25 +36,25 @@ docker-compose down
 ```
 
 ### Run commands into container:
-```docker exec -it app php artisan key:generate``` <br>
+```docker exec app php artisan key:generate``` <br>
 
-```docker exec -it app php storage:link``` <br>
+```docker exec app php storage:link``` <br>
 
-```docker exec -it app php artisan migrate --seed``` <br>
+```docker exec app php artisan migrate --seed``` <br>
 
-### Port bindings and default password - for outside access (host)
-This parameters can be edited at <b>docker-compose.yml</b>
+### Port bindings and default parameters - to access from outside of container (host)
+All parameters can be edited at <b>docker-compose.yml</b>
 
-<b>WEB Application</b>: 8080 (localhost:8080)<br>
+<b>WEB Application</b>: 3000 (localhost:3000)<br>
 <b>MYSQL</b>: 33061<br>
 <b>MONGODB</b>: 27018<br>
-<b>MYSQL_DATABASE</b>: app<br>
-<b>MYSQL_ROOT_PASSWORD</b>: root<br>
-<b>MYSQL_USER</b>: admin<br>
-<b>MYSQL_PASSWORD</b>: admin<br>
-<b>MONGO_INITDB_ROOT_USERNAME</b>: root<br>
-<b>MONGO_INITDB_ROOT_PASSWORD</b>: root<br>
-<b>REDIS</b>: 6379<br>
+<b>MARIADB DATABASE</b>: app<br>
+<b>MARIADB ROOT_PASSWORD</b>: root<br>
+<b>MARIADB USER</b>: admin<br>
+<b>MARIADB PASSWORD</b>: admin<br>
+<b>MONGO ROOT USERNAME</b>: root<br>
+<b>MONGO ROOT PASSWORD</b>: root<br>
+<b>REDIS PORT</b>: 6379<br>
 
 ## License
 
