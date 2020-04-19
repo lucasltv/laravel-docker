@@ -7,10 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Laravel 7.x Scaffold with Docker, Nginx, MySql/MariaDB , Redis (optional) and MongoDB (optional)
+## Laravel 7.x Scaffold with Docker, Nginx, PHP, MariaDB (or MySql), Redis and MongoDB
 
+#### This structure was built with ```composer create-project --prefer-dist laravel/laravel app```
 
-#### This structure was built with ```composer create-project --prefer-dist laravel/laravel <app_name>```
+##### PHP Version: 7.2
+##### MariaDB Version: latest
+##### MySql (disabled by default) Version: 5.7
+##### MongoDB Version (optional): 4.2.5
+##### Redis Version (optional): latest
 
 Start (or scripts/start-dev.sh):
 ```
