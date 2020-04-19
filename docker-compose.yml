@@ -1,54 +1,53 @@
 version: '2'
 services:
-  db:
-    container_name: db
-    image: mariadb:latest
-    # image: mysql:5.7
-    ports:
-      - "33061:3306"
-    restart: unless-stopped
+  mariadb:
+    image: 'bitnami/mariadb:10.1'
     volumes:
-      - ./.docker-volumes-data/db:/var/lib/database
+      - app-db-mariadb/:/var/lib/database
     environment:
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_DATABASE=app
+      - MARIADB_USER=admin
+      - MARIADB_PASSWORD=admin
+      # /opt/bitnami/mariadb/tmp/mysql.sock
 
   mongodb:
     container_name: mongodb
     image: mongo:latest
     ports:
-      - "27018:27017"
+      - 27018:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    restart: unless-stopped
     volumes:
-          - ./.docker-volumes-data/mongodb:/var/lib/database
+      - app-db-mongodb/:/var/lib/database
 
   redis:
     container_name: redis
     image: redis:latest
-    restart: unless-stopped
     ports:
-      - "6379:6379"
-    restart: unless-stopped
+      - 6379:6379
     volumes:
-      - ./.docker-volumes-data/redis:/data
+      - app-db-redis/:/var/lib/database
 
   app:
-    tty: true
+    container_name: app
     image: bitnami/laravel:7
+    tty: true
     environment:
-      DB_HOST: db
-      DB_USERNAME: admin
+      DB_HOST: mariadb
       DB_DATABASE: app
+      DB_USERNAME: admin
       DB_PASSWORD: admin
     depends_on:
-      - db
+      - mariadb
     ports:
       - 3000:3000
     volumes:
       - ./:/app
     # privileged: true # Privileged mode could be required to run this container under Windows
+
+volumes:
+  app-db-mariadb:
+  app-db-mongodb:
+  app-db-redis:
