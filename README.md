@@ -13,8 +13,8 @@
 
 ##### PHP Version: 7.2
 ##### MariaDB Version: latest
-##### MySql (disabled by default) Version: 5.7
-##### MongoDB Version (optional): 4.2.5
+##### MySql (disabled by default): latest
+##### MongoDB Version (optional): latest
 ##### Redis Version (optional): latest
 
 <br>
