@@ -23,28 +23,22 @@ docker-compose down
 ```
 
 ### Run commands into container:
-```
-docker exec -it app php artisan key:generate
-```
+```docker exec -it app php artisan key:generate``` <br>
 
-```
-docker exec -it app php storage:link
-```
+```docker exec -it app php storage:link``` <br>
 
-```
-docker exec -it app php artisan migrate --seed
-```
+```docker exec -it app php artisan migrate --seed``` <br>
 
 ### Port bindings and default password - for outside access (host)
 This parameters can be edited at <b>docker-compose.yml</b>
 
-<b>WEB Application</b>: 8080 (localhost:8080)
-<b>MYSQL</b>: 33061
-<b>REDIS</b>: 6379
-<b>MYSQL_DATABASE</b>: app
-<b>MYSQL_ROOT_PASSWORD</b>: root
-<b>MYSQL_USER</b>: admin
-<b>MYSQL_PASSWORD</b>: admin
+<b>WEB Application</b>: 8080 (localhost:8080)<br>
+<b>MYSQL</b>: 33061<br>
+<b>REDIS</b>: 6379<br>
+<b>MYSQL_DATABASE</b>: app<br>
+<b>MYSQL_ROOT_PASSWORD</b>: root<br>
+<b>MYSQL_USER</b>: admin<br>
+<b>MYSQL_PASSWORD</b>: admin<br>
 
 ## License
 
