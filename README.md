@@ -9,11 +9,12 @@
 
 ## Laravel 7.x Scaffold with Docker, Redis and MySql
 
-Start:
+Start (scripts/start-dev.sh):
 ```
 docker-compose up -d --build
 ```
-Stop:
+
+Stop (scripts/stop-dev.sh):
 ```
 docker-compose down
 ```
