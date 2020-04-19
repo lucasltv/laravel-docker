@@ -1,14 +1,14 @@
 version: '2'
 services:
-  mysql:
-    container_name: mysql
+  db:
+    container_name: db
     image: mariadb:latest
     # image: mysql:5.7
     ports:
       - "33061:3306"
     restart: unless-stopped
     volumes:
-      - ./.docker-volumes-data/mysql:/var/lib/database
+      - ./.docker-volumes-data/db:/var/lib/database
     environment:
       MYSQL_DATABASE: app
       MYSQL_ROOT_PASSWORD: root
@@ -17,7 +17,7 @@ services:
 
   mongodb:
     container_name: mongodb
-    image: mongodb:latest
+    image: mongo:latest
     ports:
       - "27018:27017"
     environment:
@@ -38,28 +38,17 @@ services:
       - ./.docker-volumes-data/redis:/data
 
   app:
-    container_name: app
-    build:
-      context: .
-      dockerfile: ./docker/php/Dockerfile
-    restart: unless-stopped
-    volumes:
-      - .:/application
-    depends_on:
-      - mysql
-    entrypoint: php-fpm
-
-  nginx:
-    build:
-      context: .
-      dockerfile: docker/nginx/Dockerfile
-    restart: unless-stopped
-    volumes:
-      - .:/application
-    ports:
-      - "8080:80"
-    depends_on:
-      - app
+    tty: true
+    image: bitnami/laravel:7
     environment:
-      - NGINX_HOST=app.localhost
-      - PHP_FPM_HOST=php-fpm
+      DB_HOST: db
+      DB_USERNAME: admin
+      DB_DATABASE: app
+      DB_PASSWORD: admin
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+    # privileged: true # Privileged mode could be required to run this container under Windows
