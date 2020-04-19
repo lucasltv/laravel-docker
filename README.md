@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Laravel 7.x Scaffold with Docker, Nginx, Redis and MySql
+## Laravel 7.x Scaffold with Docker, Nginx, Redis and MySql/MariaDB
 
 
 #### This structure was built with ```composer create-project --prefer-dist laravel/laravel <app_name>```
