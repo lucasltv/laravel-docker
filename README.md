@@ -18,7 +18,7 @@ Stop:
 docker-compose down
 ```
 
-Run inside container commands:
+Run commands into container:
 ```
 docker exec -it app php artisan migrate --seed
 ```
